@@ -1,0 +1,12 @@
+# OS
+.DS_Store
+Thumbs.db
+# Editor
+.vscode/
+.idea/
+# Source PDFs (heavy, not needed in the deployed site)
+*.pdf
+# Vercel
+.vercel/
+# Node (in case)
+node_modules/
