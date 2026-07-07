@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     /* ---------- Design tokens ---------- */
@@ -27,11 +27,11 @@
       --paper-dim: #c9b78e;
       --lacquer: #8b0a0a;        /* deep lacquer red */
       --lacquer-bright: #c8102e; /* vermilion */
-      --gold: #c9a14a;
-      --gold-bright: #e6c478;
+      --gold: #ece7db;           /* ivory (label accent, no gold) */
+      --gold-bright: #d8452f;    /* vermilion highlight */
       --jade: #4f6a4d;
-      --line: rgba(201, 161, 74, 0.35);
-      --line-soft: rgba(201, 161, 74, 0.18);
+      --line: rgba(236, 231, 219, 0.22);
+      --line-soft: rgba(236, 231, 219, 0.12);
 
       --font-display: "Bodoni Moda", "Cormorant Garamond", "Times New Roman", serif;
       --font-serif: "Cormorant Garamond", "Times New Roman", serif;
@@ -130,30 +130,6 @@
     }
     nav.main a { transition: color .25s var(--ease); }
     nav.main a:hover { color: var(--gold-bright); }
-    .lang-switch {
-      display: flex;
-      gap: 0;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      overflow: hidden;
-      background: rgba(10,8,7,0.6);
-    }
-    .lang-switch button {
-      background: transparent;
-      color: var(--paper-soft);
-      border: 0;
-      padding: 8px 13px;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      transition: all .25s var(--ease);
-    }
-    .lang-switch button[aria-pressed="true"] {
-      background: var(--lacquer);
-      color: var(--gold-bright);
-    }
-    .lang-switch button:hover:not([aria-pressed="true"]) { color: var(--gold-bright); }
-
     @media (max-width: 880px) {
       nav.main { display: none; }
     }
@@ -268,13 +244,13 @@
       transition: transform .35s var(--ease);
       z-index: -1;
     }
-    .btn:hover { color: var(--gold-bright); border-color: var(--gold-bright); }
+    .btn:hover { color: #fff5e6; border-color: var(--gold-bright); }
     .btn:hover::before { transform: translateX(0); }
 
     .btn.primary {
       background: var(--lacquer);
       border-color: var(--lacquer);
-      color: var(--gold-bright);
+      color: #fff5e6;
     }
     .btn.primary::before { background: var(--lacquer-bright); }
     .btn.primary:hover { border-color: var(--lacquer-bright); color: #fff5d6; }
@@ -368,7 +344,6 @@
       position: relative;
       aspect-ratio: 4/3;
       overflow: hidden;
-      border: 1px solid var(--line-soft);
     }
     .about-figure img {
       width: 100%; height: 100%; object-fit: cover;
@@ -417,12 +392,10 @@
       position: relative;
     }
     .synopsis-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: clamp(40px, 6vw, 80px);
-      align-items: start;
+      display: block;
+      max-width: 70ch;
     }
-    @media (max-width: 880px) { .synopsis-grid { grid-template-columns: 1fr; } }
+    .synopsis p { font-size: clamp(18px, 1.7vw, 21px); }
 
     .synopsis-figure { position: relative; aspect-ratio: 3/4; overflow: hidden; }
     .synopsis-figure img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.92) contrast(1.05); }
@@ -481,7 +454,6 @@
       position: relative;
       overflow: hidden;
       aspect-ratio: 3/4;
-      border: 1px solid var(--line-soft);
       transition: transform .5s var(--ease);
     }
     .char-card:hover { transform: translateY(-6px); }
@@ -560,7 +532,6 @@
       position: relative;
       aspect-ratio: 16/10;
       overflow: hidden;
-      border: 1px solid var(--line-soft);
     }
     .act-figure img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
     .act-figure:hover img { transform: scale(1.04); }
@@ -844,27 +815,6 @@
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
     .reveal.in { opacity: 1; transform: none; }
 
-    /* ---------- Chinese typographic polish ---------- */
-    html[data-lang="zh"] body { font-family: var(--font-cn), var(--font-sans); }
-    html[data-lang="zh"] .hero-title,
-    html[data-lang="zh"] .section-title,
-    html[data-lang="zh"] .act-name,
-    html[data-lang="zh"] .team-card .name,
-    html[data-lang="zh"] .tour-title,
-    html[data-lang="zh"] .char-name,
-    html[data-lang="zh"] .hero-sub,
-    html[data-lang="zh"] .section-intro,
-    html[data-lang="zh"] .synopsis p,
-    html[data-lang="zh"] .quote p,
-    html[data-lang="zh"] .team-card p,
-    html[data-lang="zh"] .act-text {
-      font-family: var(--font-cn), serif;
-      font-style: normal !important;
-    }
-    html[data-lang="zh"] .hero-title { font-weight: 600; letter-spacing: 0.04em; }
-    html[data-lang="zh"] .hero-title .cn { display: none; }
-    html[data-lang="zh"] .synopsis p:first-of-type::first-letter { float: none; font-size: 1em; margin: 0; color: inherit; }
-
   </style>
 </head>
 
@@ -874,70 +824,65 @@
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <span data-i18n="brand.label">The Savage Land</span>
+        <span>Tierra Salvaje</span>
       </div>
       <nav class="main" aria-label="Primary">
-        <a href="#about" data-i18n="nav.about">About</a>
-        <a href="#synopsis" data-i18n="nav.synopsis">Synopsis</a>
-        <a href="#characters" data-i18n="nav.characters">Characters</a>
-        <a href="#story" data-i18n="nav.story">The Story</a>
-        <a href="#team" data-i18n="nav.team">Creators</a>
-        <a href="#tour" data-i18n="nav.tour">Tickets</a>
+        <a href="#about">La obra</a>
+        <a href="#synopsis">Sinopsis</a>
+        <a href="#characters">Personajes</a>
+        <a href="#story">La historia</a>
+        <a href="#team">Creadores</a>
+        <a href="#tour">Entradas</a>
       </nav>
-      <div class="lang-switch" role="group" aria-label="Language">
-        <button data-set-lang="en" aria-pressed="true">EN</button>
-        <button data-set-lang="zh" aria-pressed="false">中文</button>
-        <button data-set-lang="es" aria-pressed="false">ES</button>
       </div>
-    </div>
   </header>
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
     <div class="container">
-      <div class="hero-eyebrow" data-i18n="hero.eyebrow">A Chinese Opera Masterpiece</div>
+      <div class="hero-eyebrow">Una obra maestra de la ópera china</div>
       <h1 class="hero-title">
-        <span data-i18n="hero.title">The Savage Land</span>
+        <span>Tierra Salvaje</span>
       </h1>
-      <p class="hero-sub" data-i18n="hero.sub">A landmark of Chinese opera — a tragedy of <em>love, vengeance and fate</em> that fuses the dramatic power of Western grand opera with the soul of Chinese music.</p>
+      <p class="hero-sub">Un hito de la ópera china: una tragedia de <em>amor, venganza y destino</em> que funde la fuerza dramática de la gran ópera occidental con el alma de la música tradicional china.</p>
       <dl class="hero-meta">
         <div>
-          <dt data-i18n="hero.meta.dates">Madrid · Premiere</dt>
-          <dd data-i18n="hero.meta.dates_val">September 1 & 2, 2026</dd>
+          <dt>Madrid · Estreno</dt>
+          <dd>1 y 2 de septiembre de 2026</dd>
         </div>
         <div>
-          <dt data-i18n="hero.meta.venue">Venue</dt>
+          <dt>Sala</dt>
           <dd>Gran Teatro CaixaBank Príncipe Pío</dd>
         </div>
         <div>
-          <dt data-i18n="hero.meta.lang">Sung in</dt>
-          <dd data-i18n="hero.meta.lang_val">Mandarin · Surtitles ES/EN</dd>
+          <dt>Función</dt>
+          <dd>En chino · Sobretítulos solo en español</dd>
         </div>
       </dl>
       <div class="cta-row">
-        <a class="btn primary" href="#buy-tickets" data-i18n="cta.tickets">Buy Tickets <span class="arrow"></span></a>
-        <a class="btn" href="#synopsis" data-i18n="cta.learn">Discover the Opera <span class="arrow"></span></a>
+        <a class="btn primary" href="#buy-tickets">Entradas ya a la venta</a>
+        <a class="btn" href="#synopsis">Descubre la ópera</a>
       </div>
     </div>
-    <div class="scroll-hint" data-i18n="scroll.hint">Scroll</div>
+    <div class="scroll-hint">Desliza</div>
   </section>
 
   <!-- ============ ABOUT ============ -->
   <section class="about" id="about">
     <div class="container">
-      <div class="section-label" data-i18n="about.label">Introduction</div>
+      <div class="section-label">Introducción</div>
       <div class="about-grid">
         <div class="about-figure reveal">
           <img src="./assets/images/ensemble.jpg" alt="The Savage Land — full ensemble curtain call on stage" />
         </div>
         <div class="reveal">
-          <h2 class="section-title" data-i18n="about.title">A landmark in Chinese <em>Western-style opera</em>.</h2>
-          <p class="section-intro" data-i18n="about.body">Premiered in 1987, <em>The Savage Land</em> has captivated audiences for nearly four decades. Jin Xiang's score fuses the verismo lyricism of Puccini with ancient, ritual Chinese percussion — a singular sonic experience and a bridge between East and West.</p>
+          <h2 class="section-title">Un hito de la ópera china que <em>cruzó a Occidente</em>.</h2>
+          <p class="section-intro">Estrenada en 1987, <em>Tierra Salvaje</em> lleva casi cuatro décadas cautivando al público. La partitura de Jin Xiang une el lirismo verista de Puccini con la percusión tradicional china —milenaria y ritual—, en una experiencia sonora única: un puente entre Oriente y Occidente.</p>
           <div class="about-stats">
-            <div class="stat"><div class="num">1987</div><div class="lbl" data-i18n="about.stat1">World Premiere · Beijing</div></div>
-            <div class="stat"><div class="num">2000</div><div class="lbl" data-i18n="about.stat2">Wenhua Prize · Highest national honour</div></div>
-            <div class="stat"><div class="num">2025</div><div class="lbl" data-i18n="about.stat3">Best Production · 19th China National Theatre Festival</div></div>
-            <div class="stat"><div class="num">4</div><div class="lbl" data-i18n="about.stat4">Acts · preceded by a prologue</div></div>
+            <div class="stat"><div class="num">1987</div><div class="lbl">Estreno mundial · Pekín</div></div>
+            <div class="stat"><div class="num">2000</div><div class="lbl">Premio Wenhua · La máxima distinción nacional</div></div>
+            <div class="stat"><div class="num">2025</div><div class="lbl">Mejor producción · 19.º Festival Nacional de Teatro de China</div></div>
+            <div class="stat"><div class="num">4</div><div class="lbl">Actos · precedidos de un prólogo</div></div>
           </div>
         </div>
       </div>
@@ -947,16 +892,13 @@
   <!-- ============ SYNOPSIS ============ -->
   <section class="synopsis" id="synopsis">
     <div class="container">
-      <div class="section-label" data-i18n="syn.label">Synopsis</div>
-      <h2 class="section-title" data-i18n="syn.title">A tragedy of <em>love and fate</em>.</h2>
+      <div class="section-label">Sinopsis</div>
+      <h2 class="section-title">Una tragedia de <em>amor y destino</em>.</h2>
       <div class="synopsis-grid">
-        <div class="synopsis-figure reveal">
-          <img src="./assets/images/scene-prologue.jpg" alt="Chou Hu under red blossoms in the savage land — prologue" />
-        </div>
         <div class="reveal">
-          <p data-i18n="syn.p1">The story centers on <strong>Qiu Hu</strong> — "Angry Tiger" — a man consumed by vengeance after eight years in prison for a crime he did not commit. He escapes to find his enemy already dead, but his beloved, <strong>Jinzi</strong> ("Golden Flower"), now married to the enemy's son, <strong>Jiao Daxing</strong>.</p>
-          <p data-i18n="syn.p2">Trapped in a loveless marriage and tormented by a domineering mother-in-law, Jinzi's passion is rekindled by Qiu Hu's return. The three are drawn into a dangerous love triangle, set against the backdrop of a bitter, long-running family feud.</p>
-          <p data-i18n="syn.p3">As tensions escalate, a series of tragic events unfold — murder, accidental death and a final flight into the savage land. In one last act of sacrifice, Qiu Hu sends Jinzi to safety before taking his own life, so that their forbidden love might survive through a new generation.</p>
+          <p>La historia se centra en <strong>Chou Hu</strong>, un hombre consumido por la venganza. Tras ocho años en prisión, escapa y regresa a su aldea para ajustar cuentas con el terrateniente que destruyó a su familia — solo para descubrir que su enemigo ya ha muerto, y que <strong>Jinzi</strong>, la mujer que siempre ha amado, es ahora la esposa del hijo de aquel, <strong>Jiao Daxing</strong>.</p>
+          <p>Atrapada en un matrimonio sin amor y sometida a la Madre Jiao —ciega y despiadada—, la pasión de Jinzi se reaviva con el regreso de Chou Hu. Los tres quedan atrapados en un triángulo imposible, sobre el telón de fondo de una vieja y amarga rencilla de sangre.</p>
+          <p>La tensión estalla en tragedia: un asesinato, la muerte accidental de un niño y una huida desesperada al bosque. Cercado al amanecer, Chou Hu pone a salvo a Jinzi —y al hijo que ambos esperan— antes de quitarse la vida, para que su amor sobreviva en la generación que viene.</p>
         </div>
       </div>
     </div>
@@ -965,55 +907,55 @@
   <!-- ============ CHARACTERS ============ -->
   <section class="characters" id="characters">
     <div class="container">
-      <div class="section-label" data-i18n="char.label">Characters</div>
-      <h2 class="section-title" data-i18n="char.title">Six voices, <em>one storm</em>.</h2>
+      <div class="section-label">Personajes</div>
+      <h2 class="section-title">Seis voces, <em>una sola tormenta</em>.</h2>
 
-      <div class="char-group-label" data-i18n="char.lead">Principal Cast</div>
+      <div class="char-group-label">Protagonistas</div>
       <div class="char-grid lead">
         <article class="char-card reveal">
           <img src="./assets/images/char-chouhu.jpg" alt="Chou Hu, baritone" />
           <div class="char-body">
-            <div class="char-name" data-i18n="char.p1.name">Chou Hu</div>
-            <div class="char-voice" data-i18n="char.p1.voice">Baritone</div>
+            <div class="char-name">Chou Hu</div>
+            <div class="char-voice">Barítono</div>
           </div>
         </article>
         <article class="char-card reveal">
           <img src="./assets/images/char-jinzi.jpg" alt="Jinzi, soprano" />
           <div class="char-body">
-            <div class="char-name" data-i18n="char.p2.name">Jinzi</div>
-            <div class="char-voice" data-i18n="char.p2.voice">Soprano</div>
+            <div class="char-name">Jinzi</div>
+            <div class="char-voice">Soprano</div>
           </div>
         </article>
         <article class="char-card reveal">
           <img src="./assets/images/char-jiaodaxing.jpg" alt="Jiao Daxing, tenor" />
           <div class="char-body">
-            <div class="char-name" data-i18n="char.p3.name">Jiao Daxing</div>
-            <div class="char-voice" data-i18n="char.p3.voice">Tenor</div>
+            <div class="char-name">Jiao Daxing</div>
+            <div class="char-voice">Tenor</div>
           </div>
         </article>
       </div>
 
-      <div class="char-group-label second" data-i18n="char.support">Supporting Cast</div>
+      <div class="char-group-label second">Reparto</div>
       <div class="char-grid support">
         <article class="char-card reveal">
           <img src="./assets/images/char-madrejiao.jpg" alt="Mother Jiao, mezzo-soprano" />
           <div class="char-body">
-            <div class="char-name" data-i18n="char.s1.name">Mother Jiao</div>
-            <div class="char-voice" data-i18n="char.s1.voice">Mezzo-Soprano</div>
+            <div class="char-name">Madre Jiao</div>
+            <div class="char-voice">Mezzosoprano</div>
           </div>
         </article>
         <article class="char-card reveal">
           <img src="./assets/images/char-chang.jpg" alt="Master Chang, bass" />
           <div class="char-body">
-            <div class="char-name" data-i18n="char.s2.name">Master Chang</div>
-            <div class="char-voice" data-i18n="char.s2.voice">Bass</div>
+            <div class="char-name">Maestro Chang</div>
+            <div class="char-voice">Bajo</div>
           </div>
         </article>
         <article class="char-card reveal">
           <img src="./assets/images/char-bai.jpg" alt="Bai, tenor" />
           <div class="char-body">
-            <div class="char-name" data-i18n="char.s3.name">Bai</div>
-            <div class="char-voice" data-i18n="char.s3.voice">Tenor</div>
+            <div class="char-name">Bai</div>
+            <div class="char-voice">Tenor</div>
           </div>
         </article>
       </div>
@@ -1023,52 +965,52 @@
   <!-- ============ THE STORY (acts) ============ -->
   <section class="story" id="story">
     <div class="container">
-      <div class="section-label" data-i18n="story.label">The Story</div>
-      <h2 class="section-title" data-i18n="story.title">From prologue to <em>the wilderness</em>.</h2>
+      <div class="section-label">La historia</div>
+      <h2 class="section-title">Del prólogo a <em>la tierra salvaje</em>.</h2>
       <div class="acts">
 
         <div class="act reveal">
           <div class="act-figure"><img src="./assets/images/scene-prologue.jpg" alt="Prologue scene"/></div>
           <div class="act-body">
-            <div class="act-num">00<small data-i18n="story.prologue.tag">Prologue</small></div>
-            <h3 class="act-name" data-i18n="story.prologue.name">The Chains of the Past</h3>
-            <p class="act-text" data-i18n="story.prologue.text">Beneath blood-red blossoms, Qiu Hu escapes from the labour camp. The savage land receives him — both as refuge and as omen.</p>
+            <div class="act-num">00<small>Prólogo</small></div>
+            <h3 class="act-name">Las cadenas del pasado</h3>
+            <p class="act-text">La tierra del norte de China yace sumida en tinieblas. Desde el fondo de un mundo injusto, las almas agraviadas claman al cielo: cuánta oscuridad, cuánto odio puede soportar la tierra.</p>
           </div>
         </div>
 
         <div class="act reveal">
           <div class="act-figure"><img src="./assets/images/scene-act1.jpg" alt="Act One scene"/></div>
           <div class="act-body">
-            <div class="act-num">01<small data-i18n="story.act1.tag">Act One</small></div>
-            <h3 class="act-name" data-i18n="story.act1.name">The Threshold of the House of Jiao</h3>
-            <p class="act-text" data-i18n="story.act1.text">In the rural homestead where time has stopped, Jinzi waits. The walls remember a feud the living can no longer name.</p>
+            <div class="act-num">01<small>Acto Uno</small></div>
+            <h3 class="act-name">El umbral de la casa Jiao</h3>
+            <p class="act-text">Tras ocho años en prisión, Chou Hu rompe sus cadenas y regresa para vengar a su familia. Pero su enemigo ya ha muerto, y Jinzi, su amor de juventud, es ahora la esposa del hijo de aquel, Jiao Daxing. Atrapada en la casa Jiao, ella sueña con huir — y de pronto Chou Hu aparece ante sus ojos.</p>
           </div>
         </div>
 
         <div class="act reveal">
           <div class="act-figure"><img src="./assets/images/scene-act2.jpg" alt="Act Two scene"/></div>
           <div class="act-body">
-            <div class="act-num">02<small data-i18n="story.act2.tag">Act Two</small></div>
-            <h3 class="act-name" data-i18n="story.act2.name">A Glass of Wine, a Spark of Fire</h3>
-            <p class="act-text" data-i18n="story.act2.text">Around the table, three lives entangle. A reunion that should have been salvation becomes the first turn of the wheel.</p>
+            <div class="act-num">02<small>Acto Dos</small></div>
+            <h3 class="act-name">Una copa de vino, una chispa de fuego</h3>
+            <p class="act-text">El viejo amor renace en diez días de encuentros a escondidas, hasta que la mirada ciega de la Madre Jiao los descubre. Entre su tiranía y el látigo de Jiao Daxing, Jinzi se rebela, y lo que prometía ser salvación enciende la tormenta.</p>
           </div>
         </div>
 
         <div class="act reveal">
           <div class="act-figure"><img src="./assets/images/scene-act3.jpg" alt="Act Three scene"/></div>
           <div class="act-body">
-            <div class="act-num">03<small data-i18n="story.act3.tag">Act Three</small></div>
-            <h3 class="act-name" data-i18n="story.act3.name">The Mother's Curse</h3>
-            <p class="act-text" data-i18n="story.act3.text">The matriarch's grip tightens. Old wounds reopen, and what cannot be said in daylight is whispered to the dark.</p>
+            <div class="act-num">03<small>Acto Tres</small></div>
+            <h3 class="act-name">La maldición de la madre</h3>
+            <p class="act-text">La Madre Jiao lo intenta todo, pero nada doblega a Chou Hu. En el estallido final, Chou Hu da muerte a Jiao Daxing — y la propia Madre Jiao, engañada, mata por error al único heredero de la casa.</p>
           </div>
         </div>
 
         <div class="act reveal">
           <div class="act-figure"><img src="./assets/images/scene-act4.jpg" alt="Act Four scene"/></div>
           <div class="act-body">
-            <div class="act-num">04<small data-i18n="story.act4.tag">Act Four</small></div>
-            <h3 class="act-name" data-i18n="story.act4.name">Into the Wilderness</h3>
-            <p class="act-text" data-i18n="story.act4.text">Murder, accidental death and flight. The lovers run into the savage land where the trees themselves seem to mourn.</p>
+            <div class="act-num">04<small>Acto Cuatro</small></div>
+            <h3 class="act-name">Hacia la tierra salvaje</h3>
+            <p class="act-text">Chou Hu y Jinzi huyen hacia una tierra que imaginan de oro, pero se pierden en el bosque oscuro. Al amanecer, cercados por la policía, Chou Hu pone a salvo a Jinzi —y al hijo que ambos esperan— y se quita la vida, para que su amor sobreviva en la generación que viene.</p>
           </div>
         </div>
 
@@ -1079,28 +1021,28 @@
   <!-- ============ CREATIVE TEAM ============ -->
   <section class="team" id="team">
     <div class="container">
-      <div class="section-label" data-i18n="team.label">Creative Team</div>
-      <h2 class="section-title" data-i18n="team.title">Visionary artists behind <em>the masterpiece</em>.</h2>
+      <div class="section-label">Equipo creativo</div>
+      <h2 class="section-title">Artistas visionarios tras <em>Tierra Salvaje</em>.</h2>
       <div class="team-grid">
         <div class="team-card reveal">
-          <div class="role" data-i18n="team.cao.role">Original Playwright</div>
+          <div class="role">Autor original</div>
           <div class="name">Cao Yu</div>
-          <p data-i18n="team.cao.body">Widely regarded as China's most important modern playwright — often compared to Shakespeare. His play <em>The Savage Land</em>, written in 1937, is a rural revenge tragedy celebrated for its psychological depth and social critique.</p>
+          <p>Considerado el dramaturgo más importante de la China moderna, a menudo comparado con Shakespeare. Su obra teatral <em>Tierra Salvaje</em>, escrita en 1937, es una tragedia de venganza rural célebre por su profundidad psicológica y su mirada social.</p>
         </div>
         <div class="team-card reveal">
-          <div class="role" data-i18n="team.wan.role">Librettist</div>
+          <div class="role">Libretista</div>
           <div class="name">Wan Fang</div>
-          <p data-i18n="team.wan.body">Cao Yu's daughter and a celebrated writer in her own right, Wan Fang brings a uniquely intimate perspective — condensing her father's text into a libretto faithful to its spirit.</p>
+          <p>Hija de Cao Yu y escritora reconocida por derecho propio, adaptó al canto la obra más oscura de su padre, aportando una mirada íntima y un libreto fiel a su espíritu.</p>
         </div>
         <div class="team-card reveal">
-          <div class="role" data-i18n="team.jin.role">Composer</div>
+          <div class="role">Compositor</div>
           <div class="name">Jin Xiang</div>
-          <p data-i18n="team.jin.body">A life of struggle infused his music with extraordinary emotional power. His score echoes Puccini's lyricism while weaving in Chinese folk traditions — a singular, individual creation.</p>
+          <p>Su partitura retoma el lenguaje verista de Puccini y lo entrelaza con la percusión tradicional china —milenaria y ritual—, dando a la obra una voz propia.</p>
         </div>
         <div class="team-card reveal">
-          <div class="role" data-i18n="team.li.role">Stage Director</div>
+          <div class="role">Dirección escénica</div>
           <div class="name">Li Daochuan</div>
-          <p data-i18n="team.li.body">A visionary director renowned for visually stunning, emotionally resonant productions that bring the opera's intense psychological drama to vivid life on stage.</p>
+          <p>Director de la puesta en escena original, reconocido por un lenguaje visual deslumbrante al servicio del intenso drama psicológico de la obra.</p>
         </div>
       </div>
     </div>
@@ -1109,35 +1051,35 @@
   <!-- ============ ACCLAIM & AWARDS ============ -->
   <section class="acclaim" id="acclaim">
     <div class="container">
-      <div class="section-label" data-i18n="acclaim.label">International Acclaim</div>
-      <h2 class="section-title" data-i18n="acclaim.title">A testament to <em>artistic excellence</em>.</h2>
+      <div class="section-label">Aclamación internacional</div>
+      <h2 class="section-title">Un testimonio de <em>excelencia artística</em>.</h2>
 
       <div class="quote-row">
         <blockquote class="quote reveal">
-          <p data-i18n="acclaim.q1">China's opera "The Savage Land"… one of the most important events in the history of world opera since the 20th century.</p>
+          <p>Una creación de personalidad propia que casi iguala a Puccini en sus propios términos, con unos orientalismos mucho más convincentes.</p>
           <div class="source">The New York Times</div>
         </blockquote>
         <blockquote class="quote reveal">
-          <p data-i18n="acclaim.q2">"The Savage Land" will become the first step for a Chinese opera to take its place in the international repertoire.</p>
-          <div class="source">The Christian Science Monitor <small data-i18n="acclaim.q2.src">Paulette Haupt, Conductor</small></div>
+          <p>La percusión es esencial en esta fusión entre Oriente y Occidente. La obra palpita de principio a fin.</p>
+          <div class="source">The Christian Science Monitor <small>Paulette Haupt, directora</small></div>
         </blockquote>
       </div>
 
       <ul class="awards-list">
         <li class="award reveal">
           <span class="year">1996</span>
-          <span class="name" data-i18n="aw.1996">20th-Century Chinese Classics</span>
-          <span class="org" data-i18n="aw.1996.org">Official selection</span>
+          <span class="name">Clásicos Chinos del Siglo XX</span>
+          <span class="org">Selección oficial</span>
         </li>
         <li class="award reveal">
           <span class="year">2000</span>
-          <span class="name" data-i18n="aw.2000">Wenhua Grand Prize</span>
-          <span class="org" data-i18n="aw.2000.org">Highest national honour</span>
+          <span class="name">Premio Wenhua</span>
+          <span class="org">Máxima distinción nacional</span>
         </li>
         <li class="award reveal">
           <span class="year">2025</span>
-          <span class="name" data-i18n="aw.2025">Best Production</span>
-          <span class="org" data-i18n="aw.2025.org">19th China National Theatre Festival</span>
+          <span class="name">Mejor Producción</span>
+          <span class="org">19.º Festival Nacional de Teatro de China</span>
         </li>
       </ul>
     </div>
@@ -1148,20 +1090,20 @@
     <div class="container">
       <div class="tour-card reveal">
         <div class="tour-eyebrow">TIERRA SALVAJE · MADRID</div>
-        <h2 class="tour-title" data-i18n="tour.title">Two nights only.</h2>
+        <h2 class="tour-title">Dos únicas noches.</h2>
         <div class="tour-dates">
           <div class="tour-date">
-            <div class="d" data-i18n="tour.d1">Tue · September 1</div>
-            <div class="t" data-i18n="tour.t1">20:00 · 2026</div>
+            <div class="d">Mar · 1 de septiembre</div>
+            <div class="t">20:00 · 2026</div>
           </div>
           <div class="tour-date">
-            <div class="d" data-i18n="tour.d2">Wed · September 2</div>
-            <div class="t" data-i18n="tour.t2">20:00 · 2026</div>
+            <div class="d">Mié · 2 de septiembre</div>
+            <div class="t">20:00 · 2026</div>
           </div>
         </div>
         <div class="tour-venue">Gran Teatro CaixaBank Príncipe Pío</div>
-        <div class="tour-city" data-i18n="tour.city">Madrid · Spain</div>
-        <a class="btn primary" href="#buy-tickets" id="buy-tickets" data-i18n="cta.tickets">Buy Tickets <span class="arrow"></span></a>
+        <div class="tour-city">Madrid · España</div>
+        <a class="btn primary" href="#buy-tickets" id="buy-tickets">Entradas ya a la venta</a>
       </div>
     </div>
   </section>
@@ -1170,361 +1112,18 @@
   <footer>
     <div class="footer-inner">
       <div style="display:flex; align-items:center; gap:14px;">
-        <span data-i18n="footer.copy">The Savage Land · A Chinese Opera Masterpiece · © 2026</span>
+        <span>Tierra Salvaje · Obra maestra de la ópera china · © 2026</span>
       </div>
-      <div data-i18n="footer.presented">Presented in association with CAEG · China Arts &amp; Entertainment Group</div>
+      <div>Presentada en colaboración con CAEG · China Arts & Entertainment Group</div>
     </div>
   </footer>
 
 
   <!-- ============ I18N + INTERACTIVITY ============ -->
   <script>
-    // =====================================================================
-    // Hand-crafted translations — never use machine translation for an
-    // ultra-design landing page. Each phrase is curated for tone and idiom.
-    // =====================================================================
-    const I18N = {
-      en: {
-        "brand.label": "The Savage Land",
-        "nav.about": "About",
-        "nav.synopsis": "Synopsis",
-        "nav.characters": "Characters",
-        "nav.story": "The Story",
-        "nav.team": "Creators",
-        "nav.tour": "Tickets",
-
-        "hero.eyebrow": "A Chinese Opera Masterpiece",
-        "hero.title": "The Savage Land",
-        "hero.sub": "A landmark of Chinese opera — a tragedy of <em>love, vengeance and fate</em> that fuses the dramatic power of Western grand opera with the soul of Chinese music.",
-        "hero.meta.dates": "Madrid · Premiere",
-        "hero.meta.dates_val": "September 1 & 2, 2026",
-        "hero.meta.venue": "Venue",
-        "hero.meta.lang": "Performance",
-        "hero.meta.lang_val": "In Chinese · Spanish surtitles only",
-        "cta.tickets": "Buy Tickets",
-        "cta.learn": "Discover the Opera",
-        "scroll.hint": "Scroll",
-
-        "about.label": "Introduction",
-        "about.title": "A landmark of Chinese opera that <em>crossed to the West</em>.",
-        "about.body": "Premiered in 1987, <em>The Savage Land</em> has captivated audiences for nearly four decades. Jin Xiang's score fuses the verismo lyricism of Puccini with ancient, ritual Chinese percussion — a singular sonic experience and a bridge between East and West.",
-        "about.stat1": "World Premiere · Beijing",
-        "about.stat2": "Wenhua Prize · Highest national honour",
-        "about.stat3": "Best Production · 19th China National Theatre Festival",
-        "about.stat4": "Acts · preceded by a prologue",
-
-        "syn.label": "Synopsis",
-        "syn.title": "A tragedy of <em>love and fate</em>.",
-        "syn.p1": "The story centers on <strong>Qiu Hu</strong> — \"Angry Tiger\" — a man consumed by vengeance after eight years in prison for a crime he did not commit. He escapes to find his enemy already dead, but his beloved, <strong>Jinzi</strong> (\"Golden Flower\"), now married to the enemy's son, <strong>Jiao Daxing</strong>.",
-        "syn.p2": "Trapped in a loveless marriage and tormented by a domineering mother-in-law, Jinzi's passion is rekindled by Qiu Hu's return. The three are drawn into a dangerous love triangle, set against the backdrop of a bitter, long-running family feud.",
-        "syn.p3": "As tensions escalate, a series of tragic events unfold — murder, accidental death and a final flight into the savage land. In one last act of sacrifice, Qiu Hu sends Jinzi to safety before taking his own life, so that their forbidden love might survive through a new generation.",
-
-        "char.label": "Characters",
-        "char.title": "Six voices, <em>one storm</em>.",
-        "char.lead": "Principal Cast",
-        "char.support": "Supporting Cast",
-        "char.p1.name": "Qiu Hu", "char.p1.voice": "Baritone",
-        "char.p2.name": "Jinzi", "char.p2.voice": "Soprano",
-        "char.p3.name": "Jiao Daxing", "char.p3.voice": "Tenor",
-        "char.s1.name": "Mother Jiao", "char.s1.voice": "Mezzo-Soprano",
-        "char.s2.name": "Master Chang", "char.s2.voice": "Bass",
-        "char.s3.name": "Bai", "char.s3.voice": "Tenor",
-
-        "story.label": "The Story",
-        "story.title": "From prologue to <em>the wilderness</em>.",
-        "story.prologue.tag": "Prologue",
-        "story.prologue.name": "The Chains of the Past",
-        "story.prologue.text": "Beneath blood-red blossoms, Qiu Hu escapes from the labour camp. The savage land receives him — both as refuge and as omen.",
-        "story.act1.tag": "Act One",
-        "story.act1.name": "The Threshold of the House of Jiao",
-        "story.act1.text": "In the rural homestead where time has stopped, Jinzi waits. The walls remember a feud the living can no longer name.",
-        "story.act2.tag": "Act Two",
-        "story.act2.name": "A Glass of Wine, a Spark of Fire",
-        "story.act2.text": "Around the table, three lives entangle. A reunion that should have been salvation becomes the first turn of the wheel.",
-        "story.act3.tag": "Act Three",
-        "story.act3.name": "The Mother's Curse",
-        "story.act3.text": "The matriarch's grip tightens. Old wounds reopen, and what cannot be said in daylight is whispered to the dark.",
-        "story.act4.tag": "Act Four",
-        "story.act4.name": "Into the Wilderness",
-        "story.act4.text": "Murder, accidental death and flight. The lovers run into the savage land where the trees themselves seem to mourn.",
-
-        "team.label": "Creative Team",
-        "team.title": "Visionary artists behind <em>the masterpiece</em>.",
-        "team.cao.role": "Original Playwright",
-        "team.cao.body": "Widely regarded as China's most important modern playwright — often compared to Shakespeare. His play <em>The Savage Land</em>, written in 1937, is a rural revenge tragedy celebrated for its psychological depth and social critique.",
-        "team.wan.role": "Librettist",
-        "team.wan.body": "Cao Yu's daughter and a celebrated writer in her own right, Wan Fang brings a uniquely intimate perspective — condensing her father's text into a libretto faithful to its spirit.",
-        "team.jin.role": "Composer",
-        "team.jin.body": "A life of struggle infused his music with extraordinary emotional power. His score echoes Puccini's lyricism while weaving in Chinese folk traditions — a singular, individual creation.",
-        "team.li.role": "Stage Director",
-        "team.li.body": "A visionary director renowned for visually stunning, emotionally resonant productions that bring the opera's intense psychological drama to vivid life on stage.",
-
-        "acclaim.label": "International Acclaim",
-        "acclaim.title": "A testament to <em>artistic excellence</em>.",
-        "acclaim.q1": "A creation with a personality of its own that almost equals Puccini on his own terms, with far more convincing orientalisms.",
-        "acclaim.q2": "Percussion is essential to this fusion of East and West. The work pulses from beginning to end.",
-        "acclaim.q2.src": "Paulette Haupt, conductor",
-        "aw.1996": "20th-Century Chinese Classics",
-        "aw.1996.org": "Official selection",
-        "aw.2000": "Wenhua Grand Prize",
-        "aw.2000.org": "Highest national honour",
-        "aw.2025": "Best Production",
-        "aw.2025.org": "19th China National Theatre Festival",
-
-        "tour.title": "Two nights only.",
-        "tour.d1": "Tue · September 1",
-        "tour.t1": "20:00 · 2026",
-        "tour.d2": "Wed · September 2",
-        "tour.t2": "20:00 · 2026",
-        "tour.city": "Madrid · Spain",
-
-        "footer.copy": "The Savage Land · A Chinese Opera Masterpiece · © 2026",
-        "footer.presented": "Presented in association with CAEG · China Arts & Entertainment Group"
-      },
-
-      zh: {
-        "brand.label": "原野",
-        "nav.about": "简介",
-        "nav.synopsis": "剧情",
-        "nav.characters": "人物",
-        "nav.story": "全剧",
-        "nav.team": "主创",
-        "nav.tour": "购票",
-
-        "hero.eyebrow": "中国歌剧巅峰之作",
-        "hero.title": "原野",
-        "hero.sub": "中国歌剧的丰碑——一部关于<em>爱、复仇与命运</em>的悲剧,以西方大歌剧的戏剧张力,融合中国音乐的灵魂。",
-        "hero.meta.dates": "马德里 · 首演",
-        "hero.meta.dates_val": "2026 年 9 月 1 日 与 2 日",
-        "hero.meta.venue": "剧场",
-        "hero.meta.lang": "演出",
-        "hero.meta.lang_val": "中文演唱 · 仅西班牙语字幕",
-        "cta.tickets": "立即购票",
-        "cta.learn": "走进《原野》",
-        "scroll.hint": "向下滚动",
-
-        "about.label": "简介",
-        "about.title": "一部跨越东西方的中国歌剧<em>丰碑</em>。",
-        "about.body": "《原野》于 1987 年首演,近四十年来打动无数观众。作曲家金湘的音乐融合普契尼的抒情笔法与中国传统打击乐——古老而仪式化,创造出独具感染力的听觉经验——一座连接东西方的桥梁。",
-        "about.stat1": "北京首演",
-        "about.stat2": "文华大奖 · 国家最高荣誉",
-        "about.stat3": "最佳剧目 · 第十九届中国戏剧节",
-        "about.stat4": "四幕 · 另加序幕",
-
-        "syn.label": "剧情",
-        "syn.title": "一场<em>爱与命运</em>的悲剧。",
-        "syn.p1": "故事围绕<strong>仇虎</strong>展开——他蒙冤入狱八年,胸怀仇恨。越狱归来时,仇人焦阎王已死,而他的恋人<strong>金子</strong>则已嫁给仇人之子<strong>焦大星</strong>。",
-        "syn.p2": "金子困于一段无爱的婚姻,又被强势的婆婆所折磨。仇虎的归来重燃她心中的激情,三人陷入一场危险的爱恨纠葛,身后是世代未消的家仇。",
-        "syn.p3": "随着冲突升级,谋杀、误伤接踵而至,最后他们逃入苍茫的原野。仇虎在最后的牺牲中将金子送往安全之地,自己以死殉情——让禁忌之爱在新生命中延续。",
-
-        "char.label": "人物",
-        "char.title": "六种声音,<em>一场风暴</em>。",
-        "char.lead": "主要角色",
-        "char.support": "配角",
-        "char.p1.name": "仇虎", "char.p1.voice": "男中音",
-        "char.p2.name": "金子", "char.p2.voice": "女高音",
-        "char.p3.name": "焦大星", "char.p3.voice": "男高音",
-        "char.s1.name": "焦母", "char.s1.voice": "女中音",
-        "char.s2.name": "常五", "char.s2.voice": "男低音",
-        "char.s3.name": "白傻子", "char.s3.voice": "男高音",
-
-        "story.label": "全剧",
-        "story.title": "从序幕走向<em>原野</em>。",
-        "story.prologue.tag": "序幕",
-        "story.prologue.name": "旧日的枷锁",
-        "story.prologue.text": "在血红的花影下,仇虎逃离劳改营。原野迎接他——既是庇护,也是预兆。",
-        "story.act1.tag": "第一幕",
-        "story.act1.name": "焦家门前",
-        "story.act1.text": "在被时光遗忘的乡间老宅,金子守望。墙壁记得活人已无法说出的仇怨。",
-        "story.act2.tag": "第二幕",
-        "story.act2.name": "杯酒之间,火星初燃",
-        "story.act2.text": "餐桌四周,三人命运交织。本该是救赎的重逢,反成命运齿轮的第一次转动。",
-        "story.act3.tag": "第三幕",
-        "story.act3.name": "母亲的诅咒",
-        "story.act3.text": "婆婆的掌控愈发深重。旧伤撕裂,白昼里不敢言说的事,只能交给黑夜低语。",
-        "story.act4.tag": "第四幕",
-        "story.act4.name": "走入原野",
-        "story.act4.text": "谋杀、误伤、逃亡。恋人奔向那片苍茫的原野,连林木都仿佛为他们悲鸣。",
-
-        "team.label": "主创团队",
-        "team.title": "杰出艺术家,缔造<em>不朽之作</em>。",
-        "team.cao.role": "原著剧作",
-        "team.cao.body": "中国现代最重要的剧作家之一,常被誉为“中国的莎士比亚”。其作品《原野》以深刻的心理刻画与社会洞察著称。",
-        "team.wan.role": "编剧",
-        "team.wan.body": "曹禺之女,本身亦为著名作家。万方以独特的亲缘视角,将父亲的原作精炼为忠于原著精神的歌剧脚本。",
-        "team.jin.role": "作曲",
-        "team.jin.body": "颠沛的人生赋予他作品非凡的情感力量。其音乐既有普契尼般的抒情,又深植中国民间音乐——成就独一无二的个人风格。",
-        "team.li.role": "导演",
-        "team.li.body": "极具想象力的舞台导演,以视觉震撼与情感真挚的演出闻名,将这部歌剧深沉的心理张力栩栩呈现于舞台。",
-
-        "acclaim.label": "国际赞誉",
-        "acclaim.title": "<em>艺术卓越</em>之印证。",
-        "acclaim.q1": "一部极具个性的创作,几乎在普契尼自己的领域与之比肩,而其东方色彩更令人信服。",
-        "acclaim.q2": "打击乐是这场东西方融合的核心。全剧自始至终跃动不息。",
-        "acclaim.q2.src": "保莱特·豪普特,指挥",
-        "aw.1996": "二十世纪华人音乐经典",
-        "aw.1996.org": "入选",
-        "aw.2000": "文华大奖",
-        "aw.2000.org": "国家最高荣誉",
-        "aw.2025": "最佳剧目",
-        "aw.2025.org": "第十九届中国戏剧节",
-
-        "tour.title": "两晚 · 限定上演。",
-        "tour.d1": "周二 · 9 月 1 日",
-        "tour.t1": "20:00 · 2026",
-        "tour.d2": "周三 · 9 月 2 日",
-        "tour.t2": "20:00 · 2026",
-        "tour.city": "西班牙 · 马德里",
-
-        "footer.copy": "原野 · 中国歌剧经典 · © 2026",
-        "footer.presented": "由中国对外文化集团有限公司(CAEG)联合呈献"
-      },
-
-      es: {
-        "brand.label": "Tierra Salvaje",
-        "nav.about": "La obra",
-        "nav.synopsis": "Sinopsis",
-        "nav.characters": "Personajes",
-        "nav.story": "La historia",
-        "nav.team": "Creadores",
-        "nav.tour": "Entradas",
-
-        "hero.eyebrow": "Una obra maestra de la ópera china",
-        "hero.title": "Tierra Salvaje",
-        "hero.sub": "Un hito de la ópera china: una tragedia de <em>amor, venganza y destino</em> que funde la fuerza dramática de la gran ópera occidental con el alma de la música tradicional china.",
-        "hero.meta.dates": "Madrid · Estreno",
-        "hero.meta.dates_val": "1 y 2 de septiembre de 2026",
-        "hero.meta.venue": "Sala",
-        "hero.meta.lang": "Función",
-        "hero.meta.lang_val": "En chino · Sobretítulos solo en español",
-        "cta.tickets": "Entradas ya a la venta",
-        "cta.learn": "Descubre la ópera",
-        "scroll.hint": "Desliza",
-
-        "about.label": "Introducción",
-        "about.title": "Un hito de la ópera china que <em>cruzó a Occidente</em>.",
-        "about.body": "Estrenada en 1987, <em>Tierra Salvaje</em> lleva casi cuatro décadas cautivando al público. La partitura de Jin Xiang une el lirismo verista de Puccini con la percusión tradicional china —milenaria y ritual—, en una experiencia sonora única: un puente entre Oriente y Occidente.",
-        "about.stat1": "Estreno mundial · Pekín",
-        "about.stat2": "Premio Wenhua · La máxima distinción nacional",
-        "about.stat3": "Mejor producción · 19.º Festival Nacional de Teatro de China",
-        "about.stat4": "Actos · precedidos de un prólogo",
-
-        "syn.label": "Sinopsis",
-        "syn.title": "Una tragedia de <em>amor y destino</em>.",
-        "syn.p1": "La historia se centra en <strong>Chou Hu</strong>, un hombre consumido por la venganza. Tras ocho años en prisión, escapa y regresa a su aldea para ajustar cuentas con el terrateniente que destruyó a su familia — solo para descubrir que su enemigo ya ha muerto, y que <strong>Jinzi</strong>, la mujer que siempre ha amado, es ahora la esposa del hijo de aquel, <strong>Jiao Daxing</strong>.",
-        "syn.p2": "Atrapada en un matrimonio sin amor y sometida a la Madre Jiao —ciega y despiadada—, la pasión de Jinzi se reaviva con el regreso de Chou Hu. Los tres quedan atrapados en un triángulo imposible, sobre el telón de fondo de una vieja y amarga rencilla de sangre.",
-        "syn.p3": "La tensión estalla en tragedia: un asesinato, la muerte accidental de un niño y una huida desesperada al bosque. Cercado al amanecer, Chou Hu pone a salvo a Jinzi —y al hijo que ambos esperan— antes de quitarse la vida, para que su amor sobreviva en la generación que viene.",
-
-        "char.label": "Personajes",
-        "char.title": "Seis voces, <em>una sola tormenta</em>.",
-        "char.lead": "Protagonistas",
-        "char.support": "Reparto",
-        "char.p1.name": "Chou Hu", "char.p1.voice": "Barítono",
-        "char.p2.name": "Jinzi", "char.p2.voice": "Soprano",
-        "char.p3.name": "Jiao Daxing", "char.p3.voice": "Tenor",
-        "char.s1.name": "Madre Jiao", "char.s1.voice": "Mezzosoprano",
-        "char.s2.name": "Maestro Chang", "char.s2.voice": "Bajo",
-        "char.s3.name": "Bai", "char.s3.voice": "Tenor",
-
-        "story.label": "La historia",
-        "story.title": "Del prólogo a <em>la tierra salvaje</em>.",
-        "story.prologue.tag": "Prólogo",
-        "story.prologue.name": "Las cadenas del pasado",
-        "story.prologue.text": "La tierra del norte de China yace sumida en tinieblas. Desde el fondo de un mundo injusto, las almas agraviadas claman al cielo: cuánta oscuridad, cuánto odio puede soportar la tierra.",
-        "story.act1.tag": "Acto Uno",
-        "story.act1.name": "El umbral de la casa Jiao",
-        "story.act1.text": "Tras ocho años en prisión, Chou Hu rompe sus cadenas y regresa para vengar a su familia. Pero su enemigo ya ha muerto, y Jinzi, su amor de juventud, es ahora la esposa del hijo de aquel, Jiao Daxing. Atrapada en la casa Jiao, ella sueña con huir — y de pronto Chou Hu aparece ante sus ojos.",
-        "story.act2.tag": "Acto Dos",
-        "story.act2.name": "Una copa de vino, una chispa de fuego",
-        "story.act2.text": "El viejo amor renace en diez días de encuentros a escondidas, hasta que la mirada ciega de la Madre Jiao los descubre. Entre su tiranía y el látigo de Jiao Daxing, Jinzi se rebela, y lo que prometía ser salvación enciende la tormenta.",
-        "story.act3.tag": "Acto Tres",
-        "story.act3.name": "La maldición de la madre",
-        "story.act3.text": "La Madre Jiao lo intenta todo, pero nada doblega a Chou Hu. En el estallido final, Chou Hu da muerte a Jiao Daxing — y la propia Madre Jiao, engañada, mata por error al único heredero de la casa.",
-        "story.act4.tag": "Acto Cuatro",
-        "story.act4.name": "Hacia la tierra salvaje",
-        "story.act4.text": "Chou Hu y Jinzi huyen hacia una tierra que imaginan de oro, pero se pierden en el bosque oscuro. Al amanecer, cercados por la policía, Chou Hu pone a salvo a Jinzi —y al hijo que ambos esperan— y se quita la vida, para que su amor sobreviva en la generación que viene.",
-
-        "team.label": "Equipo creativo",
-        "team.title": "Artistas visionarios tras <em>Tierra Salvaje</em>.",
-        "team.cao.role": "Autor original",
-        "team.cao.body": "Considerado el dramaturgo más importante de la China moderna, a menudo comparado con Shakespeare. Su obra teatral <em>Tierra Salvaje</em>, escrita en 1937, es una tragedia de venganza rural célebre por su profundidad psicológica y su mirada social.",
-        "team.wan.role": "Libretista",
-        "team.wan.body": "Hija de Cao Yu y escritora reconocida por derecho propio, adaptó al canto la obra más oscura de su padre, aportando una mirada íntima y un libreto fiel a su espíritu.",
-        "team.jin.role": "Compositor",
-        "team.jin.body": "Su partitura retoma el lenguaje verista de Puccini y lo entrelaza con la percusión tradicional china —milenaria y ritual—, dando a la obra una voz propia.",
-        "team.li.role": "Dirección escénica",
-        "team.li.body": "Director de la puesta en escena original, reconocido por un lenguaje visual deslumbrante al servicio del intenso drama psicológico de la obra.",
-
-        "acclaim.label": "Aclamación internacional",
-        "acclaim.title": "Un testimonio de <em>excelencia artística</em>.",
-        "acclaim.q1": "Una creación de personalidad propia que casi iguala a Puccini en sus propios términos, con unos orientalismos mucho más convincentes.",
-        "acclaim.q2": "La percusión es esencial en esta fusión entre Oriente y Occidente. La obra palpita de principio a fin.",
-        "acclaim.q2.src": "Paulette Haupt, directora",
-        "aw.1996": "Clásicos Chinos del Siglo XX",
-        "aw.1996.org": "Selección oficial",
-        "aw.2000": "Premio Wenhua",
-        "aw.2000.org": "Máxima distinción nacional",
-        "aw.2025": "Mejor Producción",
-        "aw.2025.org": "19.º Festival Nacional de Teatro de China",
-
-        "tour.title": "Dos únicas noches.",
-        "tour.d1": "Mar · 1 de septiembre",
-        "tour.t1": "20:00 · 2026",
-        "tour.d2": "Mié · 2 de septiembre",
-        "tour.t2": "20:00 · 2026",
-        "tour.city": "Madrid · España",
-
-        "footer.copy": "Tierra Salvaje · Obra maestra de la ópera china · © 2026",
-        "footer.presented": "Presentada en colaboración con CAEG · China Arts & Entertainment Group"
-      }
-    };
-
-    // -------- Apply translations --------
-    const html = document.documentElement;
-    function applyLang(lang) {
-      if (!I18N[lang]) lang = "en";
-      const dict = I18N[lang];
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (dict[key] !== undefined) {
-          el.innerHTML = dict[key];
-        }
-      });
-      html.setAttribute("lang", lang === "zh" ? "zh-CN" : lang);
-      html.setAttribute("data-lang", lang);
-      document.title = lang === "zh" ? "原野 · 中国歌剧经典 · 马德里"
-                     : lang === "es" ? "Tierra Salvaje · Ópera china en Madrid"
-                     : "The Savage Land · 原野 · A Chinese Opera Masterpiece";
-      document.querySelectorAll("[data-set-lang]").forEach(b => {
-        b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
-      });
-      try { localStorage.setItem("sl_lang", lang); } catch (e) {}
-    }
-
-    // -------- Init --------
     document.addEventListener("DOMContentLoaded", () => {
-      // Restore previous choice, else detect browser preference among supported
-      let initial = "en";
-      try {
-        const saved = localStorage.getItem("sl_lang");
-        if (saved && I18N[saved]) initial = saved;
-        else {
-          const nav = (navigator.language || "en").toLowerCase();
-          if (nav.startsWith("zh")) initial = "zh";
-          else if (nav.startsWith("es")) initial = "es";
-        }
-      } catch (e) {}
-      applyLang(initial);
-
-      document.querySelectorAll("[data-set-lang]").forEach(b => {
-        b.addEventListener("click", () => applyLang(b.getAttribute("data-set-lang")));
-      });
-
-      // Scroll reveal
       const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add("in"); obs.unobserve(e.target); }
-        });
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); obs.unobserve(e.target); } });
       }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
       document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
     });
