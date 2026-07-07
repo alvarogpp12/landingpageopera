@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Tierra Salvaje · Ópera china en Madrid</title>
   <meta name="description" content="Tierra Salvaje — un hito de la ópera china de Jin Xiang, basada en la obra de Cao Yu. Estreno en Madrid: 1 y 2 de septiembre de 2026, Gran Teatro CaixaBank Príncipe Pío. Interpretada en chino con sobretítulos únicamente en español." />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#060a18" />
 
   <!-- Hreflang alternates for SEO -->
   <link rel="alternate" hreflang="en" href="#en" />
@@ -15,13 +15,13 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Ma+Shan+Zheng&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     /* ---------- Design tokens ---------- */
     :root {
-      --ink: #0a0807;
-      --ink-2: #15110e;
+      --ink: #060a18;            /* midnight navy */
+      --ink-2: #0b1226;          /* deep blue */
       --paper: #f4e9d3;
       --paper-soft: #ebdcb9;
       --paper-dim: #c9b78e;
@@ -33,10 +33,11 @@
       --line: rgba(201, 161, 74, 0.35);
       --line-soft: rgba(201, 161, 74, 0.18);
 
+      --font-display: "Bodoni Moda", "Cormorant Garamond", "Times New Roman", serif;
       --font-serif: "Cormorant Garamond", "Times New Roman", serif;
       --font-sans: "Inter", system-ui, -apple-system, "Helvetica Neue", sans-serif;
       --font-cn: "Noto Serif SC", "STSong", "SimSun", serif;
-      --font-brush: "Ma Shan Zheng", "Noto Serif SC", serif;
+      --font-brush: "Noto Serif SC", serif;
 
       --max: 1280px;
       --gutter: clamp(20px, 4vw, 56px);
@@ -66,8 +67,8 @@
       position: fixed; inset: 0;
       pointer-events: none;
       background-image:
-        radial-gradient(circle at 20% 10%, rgba(201,161,74,0.05), transparent 40%),
-        radial-gradient(circle at 80% 90%, rgba(139,10,10,0.07), transparent 50%);
+        radial-gradient(circle at 20% 10%, rgba(120,150,220,0.06), transparent 40%),
+        radial-gradient(circle at 80% 90%, rgba(30,70,180,0.14), transparent 55%);
       mix-blend-mode: screen;
       z-index: 1;
     }
@@ -170,8 +171,8 @@
     .hero::before {
       content: "";
       position: absolute; inset: 0;
-      background: url("./assets/images/hero-title.jpg") center/cover no-repeat;
-      filter: brightness(0.72) contrast(1.1) saturate(1.15);
+      background: url("./assets/images/hero-blue.jpg") center/cover no-repeat;
+      filter: brightness(0.82) contrast(1.05) saturate(1.1);
       z-index: -2;
     }
     .hero::after {
@@ -191,12 +192,12 @@
     .hero-eyebrow::before { content: "—  "; }
 
     .hero-title {
-      font-family: var(--font-serif);
-      font-weight: 500;
-      font-style: italic;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-style: normal;
       font-size: clamp(48px, 9vw, 132px);
       line-height: 0.96;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.005em;
       color: var(--paper);
       margin: 0 0 14px 0;
     }
@@ -327,8 +328,8 @@
     }
 
     .section-title {
-      font-family: var(--font-serif);
-      font-weight: 400;
+      font-family: var(--font-display);
+      font-weight: 500;
       font-size: clamp(34px, 5vw, 64px);
       line-height: 1.05;
       letter-spacing: -0.01em;
@@ -396,7 +397,7 @@
       background: rgba(10,8,7,0.4);
     }
     .stat .num {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-weight: 500;
       font-size: 38px;
       line-height: 1;
@@ -456,7 +457,7 @@
 
     /* ---------- Characters ---------- */
     .characters {
-      background: linear-gradient(180deg, var(--ink) 0%, #100b08 100%);
+      background: linear-gradient(180deg, var(--ink) 0%, #0a1226 100%);
     }
     .char-group-label {
       display: flex; align-items: center; gap: 16px;
@@ -511,7 +512,7 @@
       margin-bottom: 6px;
     }
     .char-name {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: 28px;
       font-weight: 500;
       line-height: 1;
@@ -564,9 +565,9 @@
     .act-figure img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
     .act-figure:hover img { transform: scale(1.04); }
     .act-num {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-style: italic;
-      font-weight: 400;
+      font-weight: 500;
       font-size: clamp(60px, 9vw, 110px);
       line-height: 1;
       color: var(--lacquer-bright);
@@ -584,7 +585,7 @@
       margin-top: 8px;
     }
     .act-name {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: clamp(26px, 3vw, 38px);
       font-weight: 500;
       line-height: 1.1;
@@ -630,7 +631,7 @@
       margin-bottom: 14px;
     }
     .team-card .name {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: 30px;
       font-weight: 500;
       line-height: 1.1;
@@ -710,7 +711,7 @@
       align-items: baseline;
     }
     .award .year {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-style: italic;
       font-size: 30px;
       color: var(--lacquer-bright);
@@ -767,7 +768,7 @@
       letter-spacing: 0.2em;
     }
     .tour-title {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: clamp(32px, 4.5vw, 56px);
       font-weight: 500;
       line-height: 1.05;
@@ -818,7 +819,7 @@
     footer {
       padding: 56px var(--gutter) 32px;
       border-top: 1px solid var(--line-soft);
-      background: #050403;
+      background: #04060f;
       color: var(--paper-dim);
       font-size: 12px;
       letter-spacing: 0.1em;
@@ -970,21 +971,21 @@
       <div class="char-group-label" data-i18n="char.lead">Principal Cast</div>
       <div class="char-grid lead">
         <article class="char-card reveal">
-          <img src="./assets/images/char-qiu-jinzi.jpg" alt="Chou Hu, baritone" />
+          <img src="./assets/images/char-chouhu.jpg" alt="Chou Hu, baritone" />
           <div class="char-body">
             <div class="char-name" data-i18n="char.p1.name">Chou Hu</div>
             <div class="char-voice" data-i18n="char.p1.voice">Baritone</div>
           </div>
         </article>
         <article class="char-card reveal">
-          <img src="./assets/images/char-trio.jpg" alt="Jinzi, soprano" />
+          <img src="./assets/images/char-jinzi.jpg" alt="Jinzi, soprano" />
           <div class="char-body">
             <div class="char-name" data-i18n="char.p2.name">Jinzi</div>
             <div class="char-voice" data-i18n="char.p2.voice">Soprano</div>
           </div>
         </article>
         <article class="char-card reveal">
-          <img src="./assets/images/char-confrontation.jpg" alt="Jiao Daxing, tenor" />
+          <img src="./assets/images/char-jiaodaxing.jpg" alt="Jiao Daxing, tenor" />
           <div class="char-body">
             <div class="char-name" data-i18n="char.p3.name">Jiao Daxing</div>
             <div class="char-voice" data-i18n="char.p3.voice">Tenor</div>
@@ -995,21 +996,21 @@
       <div class="char-group-label second" data-i18n="char.support">Supporting Cast</div>
       <div class="char-grid support">
         <article class="char-card reveal">
-          <img src="./assets/images/char-mother.jpg" alt="Mother Jiao, mezzo-soprano" />
+          <img src="./assets/images/char-madrejiao.jpg" alt="Mother Jiao, mezzo-soprano" />
           <div class="char-body">
             <div class="char-name" data-i18n="char.s1.name">Mother Jiao</div>
             <div class="char-voice" data-i18n="char.s1.voice">Mezzo-Soprano</div>
           </div>
         </article>
         <article class="char-card reveal">
-          <img src="./assets/images/char-scene.jpg" alt="Master Chang, bass" />
+          <img src="./assets/images/char-chang.jpg" alt="Master Chang, bass" />
           <div class="char-body">
             <div class="char-name" data-i18n="char.s2.name">Master Chang</div>
             <div class="char-voice" data-i18n="char.s2.voice">Bass</div>
           </div>
         </article>
         <article class="char-card reveal">
-          <img src="./assets/images/scene-act2.jpg" alt="Bai, tenor" />
+          <img src="./assets/images/char-bai.jpg" alt="Bai, tenor" />
           <div class="char-body">
             <div class="char-name" data-i18n="char.s3.name">Bai</div>
             <div class="char-voice" data-i18n="char.s3.voice">Tenor</div>
