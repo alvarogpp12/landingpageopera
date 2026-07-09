@@ -477,6 +477,9 @@
       filter: brightness(0.78);
     }
     .char-card:hover img { transform: scale(1.06); filter: brightness(0.95); }
+    /* Encuadre para dejar fuera el logo de la compañía (arriba-izq.) y ampliar al personaje */
+    .char-card img.frame-bai { object-position: 100% center; transform: scale(1.35); transform-origin: left center; }
+    .char-card:hover img.frame-bai { transform: scale(1.42); transform-origin: left center; }
     .char-card::after {
       content: "";
       position: absolute; inset: 0;
@@ -925,21 +928,21 @@
       <div class="char-group-label">Protagonistas</div>
       <div class="char-grid lead">
         <article class="char-card reveal">
-          <img src="./assets/images/char-chouhu.jpg" alt="Chou Hu, baritone" />
+          <img src="./assets/images/char-chouhu.jpg" alt="Chou Hu, baritone" style="object-position: 50% center" />
           <div class="char-body">
             <div class="char-name">Chou Hu</div>
             <div class="char-voice">Barítono</div>
           </div>
         </article>
         <article class="char-card reveal">
-          <img src="./assets/images/char-jinzi.jpg" alt="Jinzi, soprano" />
+          <img src="./assets/images/char-jinzi.jpg" alt="Jinzi, soprano" style="object-position: 62% center" />
           <div class="char-body">
             <div class="char-name">Jinzi</div>
             <div class="char-voice">Soprano</div>
           </div>
         </article>
         <article class="char-card reveal">
-          <img src="./assets/images/char-jiaodaxing.jpg" alt="Jiao Daxing, tenor" />
+          <img src="./assets/images/char-jiaodaxing.jpg" alt="Jiao Daxing, tenor" style="object-position: 80% center" />
           <div class="char-body">
             <div class="char-name">Jiao Daxing</div>
             <div class="char-voice">Tenor</div>
@@ -950,21 +953,21 @@
       <div class="char-group-label second">Reparto</div>
       <div class="char-grid support">
         <article class="char-card reveal">
-          <img src="./assets/images/char-madrejiao.jpg" alt="Mother Jiao, mezzo-soprano" />
+          <img src="./assets/images/char-madrejiao.jpg" alt="Mother Jiao, mezzo-soprano" style="object-position: 30% center" />
           <div class="char-body">
             <div class="char-name">Madre Jiao</div>
             <div class="char-voice">Mezzosoprano</div>
           </div>
         </article>
         <article class="char-card reveal">
-          <img src="./assets/images/char-chang.jpg" alt="Master Chang, bass" />
+          <img src="./assets/images/char-chang.jpg" alt="Master Chang, bass" style="object-position: 100% center" />
           <div class="char-body">
             <div class="char-name">Maestro Chang</div>
             <div class="char-voice">Bajo</div>
           </div>
         </article>
         <article class="char-card reveal">
-          <img src="./assets/images/char-bai.jpg" alt="Bai, tenor" />
+          <img src="./assets/images/char-bai.jpg" alt="Bai, tenor" class="frame-bai" />
           <div class="char-body">
             <div class="char-name">Bai</div>
             <div class="char-voice">Tenor</div>
