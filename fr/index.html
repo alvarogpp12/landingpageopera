@@ -979,6 +979,46 @@
       line-height: 1;
     }
 
+    /* ---------- Bandeau cookies ---------- */
+    .cookie-banner {
+      position: fixed;
+      left: 16px;
+      bottom: 16px;
+      z-index: 200;
+      width: min(440px, calc(100vw - 32px));
+      padding: 22px 24px;
+      background: color-mix(in srgb, var(--negro-absoluto) 96%, transparent);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 40px rgba(0,0,0,.55);
+      display: none;
+    }
+    .cookie-banner.show { display: block; }
+    .cookie-banner p {
+      margin: 0 0 16px;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--paper-soft);
+    }
+    .cookie-banner a { text-decoration: underline; }
+    .cookie-actions { display: flex; gap: 10px; }
+    .cookie-actions button {
+      flex: 1;
+      padding: 11px 14px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: 1px solid var(--bronce-estepa);
+      background: transparent;
+      color: var(--paper);
+      transition: all .25s var(--ease);
+    }
+    .cookie-actions .accept { background: var(--lacquer); border-color: var(--lacquer-bright); color: var(--hueso); }
+    .cookie-actions .accept:hover { background: var(--lacquer-bright); }
+    .cookie-actions .reject:hover { color: var(--hueso); border-color: var(--oro-trigo); }
+    @media (max-width: 880px) {
+      .cookie-banner { bottom: calc(88px + env(safe-area-inset-bottom)); }
+    }
+
     /* ---------- Reveal-on-scroll ---------- */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
     .reveal.in { opacity: 1; transform: none; }
@@ -1340,6 +1380,15 @@
     <a href="https://tickets.oneboxtds.com/laestacion/events/58307" target="_blank" rel="noopener">Billets Madrid</a>
   </div>
 
+  <!-- ============ COOKIE BANNER ============ -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Bandeau cookies">
+    <p>Nous utilisons des cookies essentiels au fonctionnement du site et, uniquement si vous les acceptez, des cookies de mesure d’audience. Vous pouvez modifier votre choix à tout moment. En savoir plus dans la <a href="/fr/politique-de-confidentialite">politique de confidentialité</a>.</p>
+    <div class="cookie-actions">
+      <button type="button" class="reject" id="cookie-reject">Refuser</button>
+      <button type="button" class="accept" id="cookie-accept">Accepter</button>
+    </div>
+  </div>
+
   <!-- ============ I18N + INTERACTIVITY ============ -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -1347,6 +1396,20 @@
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); obs.unobserve(e.target); } });
       }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
       document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+
+      // Consentement cookies (partagé entre / et /fr via localStorage)
+      const KEY = "cookie-consent"; // "accepted" | "rejected"
+      const banner = document.getElementById("cookie-banner");
+      let saved = null;
+      try { saved = localStorage.getItem(KEY); } catch (e) {}
+      if (!saved) banner.classList.add("show");
+      const choose = (v) => {
+        try { localStorage.setItem(KEY, v); } catch (e) {}
+        banner.classList.remove("show");
+        // Lors de l’ajout d’analytics (GA, Matomo…), ne les charger que si v === "accepted"
+      };
+      document.getElementById("cookie-accept").addEventListener("click", () => choose("accepted"));
+      document.getElementById("cookie-reject").addEventListener("click", () => choose("rejected"));
     });
   </script>
 
