@@ -25,6 +25,74 @@
   <meta name="twitter:description" content="Le chef-d’œuvre de l’opéra chinois revient en Europe après près de trente ans. Paris (Salle Pleyel) 5-6 sept · Madrid 1-2 sept 2026." />
   <meta name="twitter:image" content="https://thesavageland.org/assets/images/hero-blue.jpg" />
 
+  <!-- Préchargement de l’image du hero (premier rendu plus rapide) -->
+  <link rel="preload" as="image" href="../assets/images/hero-blue.jpg" fetchpriority="high" />
+
+  <!-- Données structurées : représentations de la tournée (rich results Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TheaterEvent",
+        "name": "La Terre Sauvage — Opéra national de Chine (Paris)",
+        "description": "Le chef-d’œuvre de l’opéra chinois de Jin Xiang, d’après Cao Yu. En chinois avec surtitres en français.",
+        "image": "https://thesavageland.org/assets/images/hero-blue.jpg",
+        "startDate": "2026-09-05T20:00:00+02:00",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "inLanguage": "zh",
+        "location": { "@type": "PerformingArtsTheater", "name": "Salle Pleyel", "address": { "@type": "PostalAddress", "streetAddress": "252 rue du Faubourg Saint-Honoré", "postalCode": "75008", "addressLocality": "Paris", "addressCountry": "FR" } },
+        "offers": { "@type": "Offer", "url": "https://www.sallepleyel.com/evenement/la-terre-sauvage/", "availability": "https://schema.org/InStock" },
+        "performer": { "@type": "PerformingGroup", "name": "China National Opera House" },
+        "organizer": { "@type": "Organization", "name": "China Arts and Entertainment Group (CAEG)" }
+      },
+      {
+        "@type": "TheaterEvent",
+        "name": "La Terre Sauvage — Opéra national de Chine (Paris)",
+        "description": "Le chef-d’œuvre de l’opéra chinois de Jin Xiang, d’après Cao Yu. En chinois avec surtitres en français.",
+        "image": "https://thesavageland.org/assets/images/hero-blue.jpg",
+        "startDate": "2026-09-06T18:00:00+02:00",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "inLanguage": "zh",
+        "location": { "@type": "PerformingArtsTheater", "name": "Salle Pleyel", "address": { "@type": "PostalAddress", "streetAddress": "252 rue du Faubourg Saint-Honoré", "postalCode": "75008", "addressLocality": "Paris", "addressCountry": "FR" } },
+        "offers": { "@type": "Offer", "url": "https://www.sallepleyel.com/evenement/la-terre-sauvage/", "availability": "https://schema.org/InStock" },
+        "performer": { "@type": "PerformingGroup", "name": "China National Opera House" },
+        "organizer": { "@type": "Organization", "name": "China Arts and Entertainment Group (CAEG)" }
+      },
+      {
+        "@type": "TheaterEvent",
+        "name": "La Terre Sauvage — Opéra national de Chine (Madrid)",
+        "description": "Le chef-d’œuvre de l’opéra chinois de Jin Xiang, d’après Cao Yu. En chinois avec surtitres en espagnol.",
+        "image": "https://thesavageland.org/assets/images/hero-blue.jpg",
+        "startDate": "2026-09-01T19:30:00+02:00",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "inLanguage": "zh",
+        "location": { "@type": "PerformingArtsTheater", "name": "Gran Teatro CaixaBank Príncipe Pío", "address": { "@type": "PostalAddress", "streetAddress": "Cuesta de San Vicente, 44", "postalCode": "28008", "addressLocality": "Madrid", "addressCountry": "ES" } },
+        "offers": { "@type": "Offer", "url": "https://tickets.oneboxtds.com/laestacion/events/58307", "availability": "https://schema.org/InStock" },
+        "performer": { "@type": "PerformingGroup", "name": "China National Opera House" },
+        "organizer": { "@type": "Organization", "name": "China Arts and Entertainment Group (CAEG)" }
+      },
+      {
+        "@type": "TheaterEvent",
+        "name": "La Terre Sauvage — Opéra national de Chine (Madrid)",
+        "description": "Le chef-d’œuvre de l’opéra chinois de Jin Xiang, d’après Cao Yu. En chinois avec surtitres en espagnol.",
+        "image": "https://thesavageland.org/assets/images/hero-blue.jpg",
+        "startDate": "2026-09-02T19:30:00+02:00",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "inLanguage": "zh",
+        "location": { "@type": "PerformingArtsTheater", "name": "Gran Teatro CaixaBank Príncipe Pío", "address": { "@type": "PostalAddress", "streetAddress": "Cuesta de San Vicente, 44", "postalCode": "28008", "addressLocality": "Madrid", "addressCountry": "ES" } },
+        "offers": { "@type": "Offer", "url": "https://tickets.oneboxtds.com/laestacion/events/58307", "availability": "https://schema.org/InStock" },
+        "performer": { "@type": "PerformingGroup", "name": "China National Opera House" },
+        "organizer": { "@type": "Organization", "name": "China Arts and Entertainment Group (CAEG)" }
+      }
+    ]
+  }
+  </script>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -189,6 +257,87 @@
     }
     .nav-cta:hover { background: var(--lacquer-bright); border-color: var(--lacquer-bright); }
     @media (max-width: 560px) { .nav-cta { display: none; } }
+
+    /* Menu burger (mobile uniquement) */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      padding: 8px;
+      color: var(--paper);
+      flex-shrink: 0;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: currentColor;
+      margin: 5px 0;
+      transition: transform .3s var(--ease), opacity .3s var(--ease);
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 880px) { .nav-toggle { display: block; } }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 95;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 26px;
+      padding-top: 60px;
+      background: color-mix(in srgb, var(--negro-absoluto) 96%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s var(--ease);
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--paper);
+    }
+    .mobile-menu a.menu-tickets {
+      margin-top: 10px;
+      padding: 14px 34px;
+      background: var(--lacquer);
+      border: 1px solid var(--lacquer-bright);
+      color: var(--hueso);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    /* Note d’urgence près des CTA */
+    .cta-urgency {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .cta-urgency::before {
+      content: "";
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--lacquer-bright);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: .45; transform: scale(.85); }
+      50% { opacity: 1; transform: scale(1); }
+    }
+    .tour-head .cta-urgency { justify-content: center; }
 
     /* Barre CTA fixe en bas (mobile uniquement) */
     .mobile-cta {
@@ -1047,8 +1196,21 @@
         <a href="/fr" class="active" aria-current="page" lang="fr">FR</a>
       </div>
       <a class="nav-cta" href="#tour">Billets</a>
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
       </div>
   </header>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about">L’œuvre</a>
+    <a href="#synopsis">Synopsis</a>
+    <a href="#characters">Personnages</a>
+    <a href="#story">L’histoire</a>
+    <a href="#team">Créateurs</a>
+    <a href="#tour" class="menu-tickets">Billets</a>
+  </div>
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
@@ -1084,6 +1246,7 @@
         <a class="btn primary" href="https://www.sallepleyel.com/evenement/la-terre-sauvage/" target="_blank" rel="noopener">Billets Paris</a>
         <a class="btn primary" href="https://tickets.oneboxtds.com/laestacion/events/58307" target="_blank" rel="noopener">Billets Madrid</a>
       </div>
+      <div class="cta-urgency">Quatre représentations seulement en Europe</div>
     </div>
     <div class="scroll-hint">Faites défiler</div>
   </section>
@@ -1320,6 +1483,7 @@
       <div class="tour-head reveal">
         <div class="tour-eyebrow">LA TERRE SAUVAGE · TOURNÉE EUROPÉENNE</div>
         <h2 class="tour-title">Deux capitales. Quatre soirées exceptionnelles.</h2>
+        <div class="cta-urgency">Quatre représentations seulement · Septembre 2026</div>
       </div>
       <div class="tour-grid">
         <div class="tour-card reveal">
@@ -1410,6 +1574,23 @@
       };
       document.getElementById("cookie-accept").addEventListener("click", () => choose("accepted"));
       document.getElementById("cookie-reject").addEventListener("click", () => choose("rejected"));
+
+      // Menu burger (mobile)
+      const toggle = document.querySelector(".nav-toggle");
+      const menu = document.getElementById("mobile-menu");
+      const closeMenu = () => {
+        menu.classList.remove("open");
+        toggle.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      };
+      toggle.addEventListener("click", () => {
+        const open = menu.classList.toggle("open");
+        toggle.classList.toggle("open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+        document.body.style.overflow = open ? "hidden" : "";
+      });
+      menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
     });
   </script>
 
