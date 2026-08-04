@@ -215,6 +215,29 @@
       text-shadow: 0 0 30px color-mix(in srgb, var(--rojo-verismo) 40%, transparent);
     }
 
+    .hero-tour { margin: 10px 0 28px; }
+    .hero-tour-label {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--hueso);
+      background: var(--lacquer);
+      padding: 8px 14px 7px 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 24px color-mix(in srgb, var(--rojo-verismo) 45%, transparent);
+    }
+    .hero-tour-cities {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(30px, 4.8vw, 62px);
+      line-height: 1.05;
+      color: var(--hueso);
+      text-shadow: 0 2px 24px rgba(0,0,0,.45);
+    }
+    .hero-tour-cities .amp { color: var(--lacquer-bright); }
+
     .hero-sub {
       font-family: var(--font-serif);
       font-size: clamp(18px, 2.2vw, 26px);
@@ -904,6 +927,10 @@
       <h1 class="hero-title">
         <span>La Terre Sauvage</span>
       </h1>
+      <div class="hero-tour">
+        <div class="hero-tour-label">Tournée européenne · Septembre 2026</div>
+        <div class="hero-tour-cities">Paris <span class="amp">&amp;</span> Madrid</div>
+      </div>
       <p class="hero-sub">Une tragédie <em>d’amour, de vengeance et de destin</em> qui unit la force de l’opéra occidental à l’âme de la musique traditionnelle chinoise. Elle regagne l’Europe après près de trente ans, dans le cadre d’une tournée exceptionnelle en Europe.</p>
       <dl class="hero-meta">
         <div>
