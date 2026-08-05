@@ -7,6 +7,11 @@
   <meta name="description" content="Tierra Salvaje — obra maestra de la ópera china de Jin Xiang, basada en la obra de Cao Yu. Gira europea: Madrid (1 y 2 de septiembre de 2026) y París (Salle Pleyel, 5 y 6 de septiembre de 2026). Regresa a Europa tras casi treinta años. En chino con sobretítulos." />
   <meta name="theme-color" content="#1A0D0A" />
 
+  <!-- Favicon / icono táctil -->
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="./assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+
   <!-- Hreflang alternates for SEO -->
   <link rel="alternate" hreflang="es" href="https://thesavageland.org/" />
   <link rel="alternate" hreflang="fr" href="https://thesavageland.org/fr" />
@@ -44,7 +49,7 @@
         "inLanguage": "zh",
         "location": { "@type": "PerformingArtsTheater", "name": "Gran Teatro CaixaBank Príncipe Pío", "address": { "@type": "PostalAddress", "streetAddress": "Cuesta de San Vicente, 44", "postalCode": "28008", "addressLocality": "Madrid", "addressCountry": "ES" } },
         "offers": { "@type": "Offer", "url": "https://tickets.oneboxtds.com/laestacion/events/58307", "availability": "https://schema.org/InStock" },
-        "performer": { "@type": "PerformingGroup", "name": "China National Opera House" },
+        "performer": { "@type": "PerformingGroup", "name": "China National Opera & Dance Drama Theater" },
         "organizer": { "@type": "Organization", "name": "China Arts and Entertainment Group (CAEG)" }
       },
       {
@@ -58,7 +63,7 @@
         "inLanguage": "zh",
         "location": { "@type": "PerformingArtsTheater", "name": "Gran Teatro CaixaBank Príncipe Pío", "address": { "@type": "PostalAddress", "streetAddress": "Cuesta de San Vicente, 44", "postalCode": "28008", "addressLocality": "Madrid", "addressCountry": "ES" } },
         "offers": { "@type": "Offer", "url": "https://tickets.oneboxtds.com/laestacion/events/58307", "availability": "https://schema.org/InStock" },
-        "performer": { "@type": "PerformingGroup", "name": "China National Opera House" },
+        "performer": { "@type": "PerformingGroup", "name": "China National Opera & Dance Drama Theater" },
         "organizer": { "@type": "Organization", "name": "China Arts and Entertainment Group (CAEG)" }
       },
       {
@@ -72,7 +77,7 @@
         "inLanguage": "zh",
         "location": { "@type": "PerformingArtsTheater", "name": "Salle Pleyel", "address": { "@type": "PostalAddress", "streetAddress": "252 rue du Faubourg Saint-Honoré", "postalCode": "75008", "addressLocality": "Paris", "addressCountry": "FR" } },
         "offers": { "@type": "Offer", "url": "https://www.sallepleyel.com/evenement/la-terre-sauvage/", "availability": "https://schema.org/InStock" },
-        "performer": { "@type": "PerformingGroup", "name": "China National Opera House" },
+        "performer": { "@type": "PerformingGroup", "name": "China National Opera & Dance Drama Theater" },
         "organizer": { "@type": "Organization", "name": "China Arts and Entertainment Group (CAEG)" }
       },
       {
@@ -86,7 +91,7 @@
         "inLanguage": "zh",
         "location": { "@type": "PerformingArtsTheater", "name": "Salle Pleyel", "address": { "@type": "PostalAddress", "streetAddress": "252 rue du Faubourg Saint-Honoré", "postalCode": "75008", "addressLocality": "Paris", "addressCountry": "FR" } },
         "offers": { "@type": "Offer", "url": "https://www.sallepleyel.com/evenement/la-terre-sauvage/", "availability": "https://schema.org/InStock" },
-        "performer": { "@type": "PerformingGroup", "name": "China National Opera House" },
+        "performer": { "@type": "PerformingGroup", "name": "China National Opera & Dance Drama Theater" },
         "organizer": { "@type": "Organization", "name": "China Arts and Entertainment Group (CAEG)" }
       }
     ]
@@ -339,6 +344,27 @@
     }
     .tour-head .cta-urgency { justify-content: center; }
 
+    .ticket-note {
+      margin: 14px 0 0;
+      font-size: 13px;
+      color: var(--paper-dim);
+    }
+
+    /* Footer: texto agrupado a la izquierda, logos enlazados a la derecha */
+    .footer-left { display: flex; flex-direction: column; gap: 10px; }
+    .footer-legal a { text-decoration: underline; }
+    .footer-logos { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .logo-link {
+      border: 1px solid var(--line);
+      padding: 10px 16px;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--paper-soft);
+      transition: border-color .25s var(--ease), color .25s var(--ease);
+    }
+    .logo-link:hover { border-color: var(--gold); color: var(--hueso); }
+
     /* Barra CTA fija inferior (solo móvil) */
     .mobile-cta {
       position: fixed;
@@ -382,7 +408,7 @@
       margin: 0;
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: clamp(16px, 1.8vw, 21px);
+      font-size: clamp(19px, 2vw, 25px);
       line-height: 1.45;
       color: var(--paper-soft);
       text-align: center;
@@ -479,7 +505,7 @@
 
     .hero-sub {
       font-family: var(--font-serif);
-      font-size: clamp(18px, 2.2vw, 26px);
+      font-size: clamp(21px, 2.6vw, 31px);
       color: var(--paper-soft);
       max-width: 720px;
       line-height: 1.45;
@@ -506,7 +532,7 @@
     .hero-meta dd {
       margin: 0;
       font-family: var(--font-serif);
-      font-size: 18px;
+      font-size: 21px;
       color: var(--paper);
     }
 
@@ -608,7 +634,7 @@
 
     .section-intro {
       font-family: var(--font-serif);
-      font-size: clamp(18px, 1.8vw, 22px);
+      font-size: clamp(21px, 2.3vw, 28px);
       line-height: 1.55;
       color: var(--paper-soft);
       max-width: 64ch;
@@ -683,7 +709,7 @@
       display: block;
       max-width: 70ch;
     }
-    .synopsis p { font-size: clamp(18px, 1.7vw, 21px); }
+    .synopsis p { font-size: clamp(22px, 2.2vw, 28px); }
 
     .synopsis-figure { position: relative; aspect-ratio: 3/4; overflow: hidden; }
     .synopsis-figure img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.92) contrast(1.05); }
@@ -701,7 +727,7 @@
     }
     .synopsis p {
       font-family: var(--font-serif);
-      font-size: clamp(17px, 1.5vw, 19px);
+      font-size: clamp(21px, 2vw, 26px);
       line-height: 1.7;
       color: var(--paper-soft);
       margin: 0 0 22px 0;
@@ -789,7 +815,7 @@
     }
     .char-desc {
       font-family: var(--font-serif);
-      font-size: 14px;
+      font-size: 17px;
       color: var(--paper-soft);
       margin-top: 10px;
       line-height: 1.5;
@@ -855,7 +881,7 @@
     }
     .act-text {
       font-family: var(--font-serif);
-      font-size: 17px;
+      font-size: clamp(20px, 1.9vw, 25px);
       line-height: 1.6;
       color: var(--paper-soft);
       max-width: 50ch;
@@ -907,7 +933,7 @@
     }
     .team-card p {
       font-family: var(--font-serif);
-      font-size: 16px;
+      font-size: clamp(19px, 1.7vw, 23px);
       line-height: 1.55;
       color: var(--paper-soft);
       margin: 14px 0 0 0;
@@ -944,7 +970,7 @@
     .quote p {
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: 22px;
+      font-size: clamp(24px, 2.2vw, 30px);
       line-height: 1.5;
       color: var(--paper);
       margin: 0 0 16px 0;
@@ -981,7 +1007,7 @@
     }
     .award .name {
       font-family: var(--font-serif);
-      font-size: 18px;
+      font-size: 22px;
       color: var(--paper);
     }
     .award .org {
@@ -1084,7 +1110,7 @@
     }
     .tour-venue {
       font-family: var(--font-serif);
-      font-size: 19px;
+      font-size: 23px;
       color: var(--paper);
       margin-bottom: 6px;
     }
@@ -1097,7 +1123,7 @@
     }
     .tour-address {
       font-family: var(--font-serif);
-      font-size: 15px;
+      font-size: 18px;
       letter-spacing: 0.03em;
       color: var(--paper-dim);
       margin-bottom: 32px;
@@ -1181,7 +1207,7 @@
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <span>Tierra Salvaje</span>
+        <a href="#top"><span>Tierra Salvaje</span></a>
       </div>
       <nav class="main" aria-label="Primary">
         <a href="#about">La obra</a>
@@ -1223,7 +1249,7 @@
         <div class="hero-tour-label">Gira europea · Septiembre 2026</div>
         <div class="hero-tour-cities">Madrid <span class="amp">&amp;</span> París</div>
       </div>
-      <p class="hero-sub">Una tragedia de <em>amor, venganza y destino</em> que funde la fuerza dramática de la gran ópera occidental con el alma de la música tradicional china. Regresa a Europa tras casi treinta años, en el marco de una gira europea excepcional.</p>
+      <p class="hero-sub">Una tragedia de <em>amor, venganza y destino</em> que funde la fuerza dramática de la gran ópera occidental con el alma de la música tradicional china. Regresa a Europa tras casi treinta años, en el marco de una gira excepcional en septiembre de 2026.</p>
       <dl class="hero-meta">
         <div>
           <dt>Gira europea</dt>
@@ -1268,8 +1294,8 @@
         </div>
         <div class="reveal">
           <h2 class="section-title">Una obra maestra de la ópera china contemporánea <em>regresa a Europa</em>.</h2>
-          <p class="section-intro">Estrenada en 1987 en Pekín, <em>Tierra Salvaje</em> lleva casi cuatro décadas cautivando al público. La partitura de Jin Xiang une el lirismo verista de Puccini con la percusión tradicional china —milenaria y ritual—, en una experiencia sonora única: un puente entre Oriente y Occidente. Aclamada hace treinta años por la crítica lírica internacional como una obra de referencia, la China National Opera House regresa ahora para una gira europea excepcional: dos noches en Madrid y dos noches en París.</p>
-          <p class="section-intro" style="font-size: 15px; margin-top: -36px;">Presentada por China Arts and Entertainment Group (CAEG) y la China National Opera House.</p>
+          <p class="section-intro">Estrenada en 1987 en Pekín, <em>Tierra Salvaje</em> lleva casi cuatro décadas cautivando al público. La partitura de Jin Xiang une el lirismo verista de Puccini con la percusión tradicional china —milenaria y ritual—, en una experiencia sonora única: un puente entre Oriente y Occidente. Aclamada hace treinta años por la crítica lírica internacional como una obra de referencia, el China National Opera & Dance Drama Theater regresa ahora para una gira europea excepcional: dos noches en Madrid y dos noches en París.</p>
+          <p class="section-intro" style="font-size: 18px; margin-top: -36px;">Una producción del China National Opera & Dance Drama Theater, presentada en Europa por China Arts and Entertainment Group (CAEG).</p>
           <div class="about-stats">
             <div class="stat"><div class="num">1987</div><div class="lbl">Estreno mundial · Pekín</div></div>
             <div class="stat"><div class="num">2000</div><div class="lbl">Premio Wenhua · La máxima distinción nacional</div></div>
@@ -1525,14 +1551,17 @@
   <!-- ============ FOOTER ============ -->
   <footer>
     <div class="footer-inner">
-      <div style="display:flex; align-items:center; gap:14px;">
+      <div class="footer-left">
         <span>Tierra Salvaje · Obra maestra de la ópera china · © 2026</span>
+        <span class="footer-legal">
+          <a href="/fr/mentions-legales">Aviso legal</a> · <a href="/fr/politique-de-confidentialite">Política de privacidad</a>
+        </span>
       </div>
-      <div>CAEG · China Arts &amp; Entertainment Group — Le Monstre Orchestra</div>
-      <div>
-        <a href="/fr/mentions-legales" style="text-decoration: underline;">Aviso legal</a>
-        &nbsp;·&nbsp;
-        <a href="/fr/politique-de-confidentialite" style="text-decoration: underline;">Política de privacidad</a>
+      <!-- Wordmarks provisionales: sustituir por logos (PNG/SVG) cuando estén disponibles -->
+      <div class="footer-logos">
+        <a class="logo-link" href="https://en.caeg.cn" target="_blank" rel="noopener">CAEG</a>
+        <a class="logo-link" href="https://lemonstreorchestra.com" target="_blank" rel="noopener">Le Monstre Orchestra</a>
+        <a class="logo-link" href="https://www.sallepleyel.com/" target="_blank" rel="noopener">Salle Pleyel</a>
       </div>
     </div>
   </footer>
@@ -1567,10 +1596,22 @@
       let saved = null;
       try { saved = localStorage.getItem(KEY); } catch (e) {}
       if (!saved) banner.classList.add("show");
+
+      // Microsoft Clarity — solo se carga con consentimiento (RGPD/GDPR)
+      const loadClarity = () => {
+        if (window.clarity) return;
+        (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "xx90rozzzz");
+      };
+      if (saved === "accepted") loadClarity();
+
       const choose = (v) => {
         try { localStorage.setItem(KEY, v); } catch (e) {}
         banner.classList.remove("show");
-        // Al añadir analytics (GA, Matomo…), cargarlos únicamente si v === "accepted"
+        if (v === "accepted") loadClarity();
       };
       document.getElementById("cookie-accept").addEventListener("click", () => choose("accepted"));
       document.getElementById("cookie-reject").addEventListener("click", () => choose("rejected"));

@@ -8,6 +8,25 @@
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#1A0D0A" />
 
+  <!-- Favicon / icône tactile -->
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+
+  <!-- Microsoft Clarity — chargé uniquement avec consentement (RGPD) -->
+  <script>
+    (function () {
+      var consent = null;
+      try { consent = localStorage.getItem("cookie-consent"); } catch (e) {}
+      if (consent !== "accepted") return;
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "xx90rozzzz");
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -85,7 +104,7 @@
     <p class="lead">Conformément au Règlement Général sur la Protection des Données (RGPD / GDPR).</p>
 
     <h2>1. Responsable du traitement</h2>
-    <p>Le responsable du traitement des données personnelles collectées via le site thesavageland.org est : <span class="ph">[Nom de l’éditeur / société]</span>, dont le siège social est situé à <span class="ph">[adresse]</span>. Contact : <a href="mailto:info@mmxxii.eu">info@mmxxii.eu</a>.</p>
+    <p>Le responsable du traitement des données personnelles collectées via le site thesavageland.org est : Kometa Producciones Audiovisuales SL (Kometa Lab), dont le siège social est situé Calle Valportillo II, 14 · 28108 Alcobendas (Madrid), Espagne. Contact : <a href="mailto:info@mmxxii.eu">info@mmxxii.eu</a>.</p>
 
     <h2>2. Données collectées</h2>
     <p>Le site peut collecter les catégories de données suivantes :</p>
@@ -108,7 +127,7 @@
     <p>Les traitements reposent sur : l’intérêt légitime (fonctionnement du site, statistiques), le consentement (cookies non essentiels, newsletter) et, le cas échéant, l’exécution de mesures précontractuelles.</p>
 
     <h2>5. Destinataires</h2>
-    <p>Les données peuvent être accessibles aux prestataires techniques (hébergeur, outils d’analytics) dans la stricte limite de leurs missions. Elles ne sont pas vendues à des tiers.</p>
+    <p>Les données peuvent être accessibles aux prestataires techniques (hébergement : Vercel Inc. ; mesure d’audience : Microsoft Clarity) dans la stricte limite de leurs missions. Elles ne sont pas vendues à des tiers.</p>
 
     <h2>6. Durée de conservation</h2>
     <p>Les données de navigation sont conservées pour une durée maximale de 13 mois. Les données de contact / newsletter sont conservées jusqu’à la désinscription ou pendant une durée maximale de 3 ans après le dernier contact.</p>
@@ -127,12 +146,12 @@
     <p>Le site utilise des cookies et technologies similaires :</p>
     <ul>
       <li>Cookies strictement nécessaires au fonctionnement du site ;</li>
-      <li>Cookies de mesure d’audience (analytics) — soumis à consentement.</li>
+      <li>Cookies de mesure d’audience (Microsoft Clarity) — soumis à consentement.</li>
     </ul>
     <p>Lors de votre première visite, un bandeau de consentement vous permet d’accepter ou de refuser les cookies non essentiels. Vous pouvez modifier vos préférences à tout moment.</p>
 
     <h2>9. Transferts hors UE</h2>
-    <p>Si des outils (analytics, hébergement) impliquent un transfert de données hors de l’Union européenne, des garanties appropriées (clauses contractuelles types, etc.) sont mises en place.</p>
+    <p>Certains outils utilisés par le site (hébergement Vercel Inc., mesure d’audience Microsoft Clarity) peuvent impliquer un transfert de données hors de l’Union européenne, notamment vers les États-Unis. Ces transferts sont encadrés par des garanties appropriées (clauses contractuelles types, cadre UE–États-Unis de protection des données, etc.).</p>
   </div>
 </body>
 </html>
