@@ -11,6 +11,7 @@
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
   <!-- Hreflang alternates for SEO -->
@@ -371,6 +372,33 @@
     .logo-link img { display: block; width: auto; }
     .logo-link img.logo-caeg { height: 26px; }
     .logo-link img.logo-monstre { height: 42px; }
+    .logo-link img.logo-cnoddt { height: 40px; }
+
+    /* Franja de colaboradores entre entradas y footer */
+    section.partners {
+      padding-block: 44px;
+      background: var(--ink);
+      border-top: 1px solid var(--line-soft);
+    }
+    .partners-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    /* Línea de copyright al final del todo */
+    .footer-copyright {
+      max-width: var(--max);
+      margin: 32px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid var(--line-soft);
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--paper-dim);
+    }
 
     /* Barre CTA fixe en bas (mobile uniquement) */
     .mobile-cta {
@@ -1556,11 +1584,22 @@
     </div>
   </section>
 
+  <!-- ============ PARTNERS ============ -->
+  <section class="partners" aria-label="Partenaires">
+    <div class="container partners-row">
+      <a class="logo-link" href="https://lemonstreorchestra.com" target="_blank" rel="noopener" aria-label="Le Monstre Orchestra">
+        <img class="logo-monstre" src="../assets/logo-monstre.png" alt="Le Monstre Orchestra" />
+      </a>
+      <!-- Logo Salle Pleyel en attente ; wordmark provisoire -->
+      <a class="logo-link" href="https://www.sallepleyel.com/" target="_blank" rel="noopener">Salle Pleyel</a>
+    </div>
+  </section>
+
   <!-- ============ FOOTER ============ -->
   <footer>
     <div class="footer-inner">
       <div class="footer-left">
-        <span>La Terre Sauvage · Chef-d’œuvre de l’opéra chinois · © 2026</span>
+        <span>La Terre Sauvage · Chef-d’œuvre de l’opéra chinois</span>
         <span class="footer-legal">
           <a href="/fr/mentions-legales">Mentions légales</a> · <a href="/fr/politique-de-confidentialite">Politique de confidentialité</a>
         </span>
@@ -1569,13 +1608,12 @@
         <a class="logo-link" href="https://en.caeg.cn" target="_blank" rel="noopener" aria-label="CAEG · China Arts and Entertainment Group">
           <img class="logo-caeg" src="../assets/logo-caeg.png" alt="CAEG · China Arts and Entertainment Group Ltd." />
         </a>
-        <a class="logo-link" href="https://lemonstreorchestra.com" target="_blank" rel="noopener" aria-label="Le Monstre Orchestra">
-          <img class="logo-monstre" src="../assets/logo-monstre.png" alt="Le Monstre Orchestra" />
-        </a>
-        <!-- Logo Salle Pleyel en attente ; wordmark provisoire -->
-        <a class="logo-link" href="https://www.sallepleyel.com/" target="_blank" rel="noopener">Salle Pleyel</a>
+        <span class="logo-link" aria-label="China National Opera &amp; Dance Drama Theater">
+          <img class="logo-cnoddt" src="../assets/logo-cnoddt.png" alt="China National Opera &amp; Dance Drama Theater" />
+        </span>
       </div>
     </div>
+    <div class="footer-copyright">© 2026 La Terre Sauvage · Tous droits réservés</div>
   </footer>
 
 
