@@ -1771,5 +1771,29 @@
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 
+  <!-- Evento personalizado de Vercel: clic en enlace de compra de entradas -->
+  <script>
+    (function () {
+      'use strict';
+      var TICKETING_HOSTS = ['oneboxtds.com', 'sallepleyel.com', 'entradas.com'];
+      var CITY = window.location.pathname.indexOf('/fr') === 0 ? 'Paris' : 'Madrid';
+      document.addEventListener('click', function (event) {
+        var target = event.target;
+        var link = target && target.closest ? target.closest('a') : null;
+        if (!link || !link.href) return;
+        var host;
+        try { host = new URL(link.href, window.location.href).hostname; } catch (e) { return; }
+        var match = TICKETING_HOSTS.some(function (t) {
+          return host === t || host.endsWith('.' + t);
+        });
+        if (!match) return;
+        window.va('event', {
+          name: 'Ticket Click',
+          data: { city: CITY, destination: host }
+        });
+      }, true);
+    })();
+  </script>
+
 </body>
 </html>
