@@ -1235,6 +1235,85 @@
     .reveal.in { opacity: 1; transform: none; }
 
   </style>
+
+  <!-- Meta Pixel — se carga solo con consentimiento de cookies (RGPD) -->
+  <script>
+    (function () {
+      'use strict';
+      var PIXEL_ID = '1368792945429307';
+      // Dominios de tiquetera: un clic hacia cualquiera cuenta como intención de compra
+      var TICKETING_HOSTS = ['oneboxtds.com', 'sallepleyel.com', 'entradas.com'];
+      var CITY = window.location.pathname.indexOf('/fr') === 0 ? 'Paris' : 'Madrid';
+      var CONTENT_ID = CITY === 'Paris' ? 'ts-paris-2026' : 'ts-madrid-2026';
+
+      function isTicketingLink(href) {
+        if (!href) return false;
+        try {
+          var host = new URL(href, window.location.href).hostname;
+          return TICKETING_HOSTS.some(function (t) {
+            return host === t || host.endsWith('.' + t);
+          });
+        } catch (e) {
+          return false;
+        }
+      }
+
+      var viewContentFired = false;
+      function loadMetaPixel() {
+        if (window.fbq) return;
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', PIXEL_ID);
+        fbq('track', 'PageView');
+        // ViewContent: visitante cualificado, a los 5 s, una sola vez
+        setTimeout(function () {
+          if (viewContentFired) return;
+          viewContentFired = true;
+          fbq('track', 'ViewContent', {
+            content_name: 'La Tierra Salvaje',
+            content_category: 'Opera',
+            content_ids: [CONTENT_ID],
+            content_type: 'product',
+            city: CITY
+          });
+        }, 5000);
+      }
+
+      var saved = null;
+      try { saved = localStorage.getItem('cookie-consent'); } catch (e) {}
+      if (saved === 'accepted') loadMetaPixel();
+
+      // Si acepta en esta visita, cargar en ese momento
+      document.addEventListener('click', function (event) {
+        var t = event.target;
+        if (t && t.closest && t.closest('#cookie-accept')) loadMetaPixel();
+      }, true);
+
+      // InitiateCheckout: clic en cualquier enlace a la tiquetera
+      // (sin consentimiento fbq no existe y el evento no se envía)
+      document.addEventListener('click', function (event) {
+        var target = event.target;
+        var link = target && target.closest ? target.closest('a') : null;
+        if (!link || !isTicketingLink(link.href)) return;
+        if (typeof fbq !== 'function') return;
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'La Tierra Salvaje',
+          content_category: 'Opera',
+          content_ids: [CONTENT_ID],
+          content_type: 'product',
+          city: CITY,
+          destination: link.hostname
+        });
+      }, true);
+    })();
+  </script>
+  <!-- End Meta Pixel Code -->
 </head>
 
 <body>
